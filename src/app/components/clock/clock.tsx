@@ -18,8 +18,22 @@ const Clock = () => {
     minute: '2-digit',
     second: '2-digit',
   });
+  const formattedDate = currentTime.toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
-  return <div className="digital-clock">{formattedTime}</div>;
+  const dayOfWeek = currentTime.toLocaleDateString(undefined, {
+    weekday: 'long',
+  });
+  return <div>
+   
+<div className='text-xl  '>  {dayOfWeek} {} 
+    {formattedDate}
+</div>
+  <div> {formattedTime}</div>
+  </div>;
 };
 
 export default Clock;
